@@ -60,14 +60,14 @@ const placeHolderData = [
   },
 ];
 
-const BACK_URL = "localhost:3000/";
+const BACK_URL = "https://mymoviz-back-lac.vercel.app/";
 
 function Home() {
   const [likedMovies, setLikedMovies] = useState([]);
   const [moviesData, setMoviesData] = useState(placeHolderData);
 
   useEffect(() => {
-    fetch("http://localhost:3000/movies")
+    fetch(BACK_URL + "movies")
       .then((r) => r.json())
       .then((json) => json.movies.map(reformatMovieData))
       .then(setMoviesData);
